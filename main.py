@@ -13,8 +13,8 @@ intents = discord.Intents.all()
 contestId = 556
 bot = discord.Client(intents=intents)
 DISCORD_TOKEN = os.getenv("DISCORD_TOKEN")
-apiKey = "8899ee9b25d5049d23decc5060d3cb93c6eeca80"
-secret = "ef0089640a54deb4cbeb129ab541fd5fec1999a7"
+apiKey = os.getenv("API")
+secret = os.getenv("PASS")
 rand = random.randint(000000, 999999)
 timeValue = time.time()
 
@@ -107,4 +107,6 @@ async def on_message(message):
         for i in range(0, len(randomList)):
             siz = len(generatedProblems[randomList[i]])
             await message.channel.send("https://codeforces.com/problemset/problem/"+generatedProblems[randomList[i]][0:siz-1:1]+"/"+generatedProblems[randomList[i]][siz-1])
+            
+
 bot.run(DISCORD_TOKEN)
